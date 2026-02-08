@@ -17,7 +17,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
      */
     public TelaUsuario() {
         initComponents();
-
+         
         // Tornar a label clicável
         lblUsuCons.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); // muda o cursor para mão
         lblUsuCons.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -29,10 +29,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     }
 
     private void consultarUsuario() {
+              
         String idUser = txtUsuId.getText().trim();
 
-        if (idUser.isEmpty()) {
+        if (idUser == null || idUser.trim().isEmpty()) {
             lblUsuCons.setText("Digite o ID do usuário");
+            txtUsuId.requestFocus();
             return;
         }
 
@@ -71,12 +73,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         lblUsuSenha = new javax.swing.JLabel();
         lblPerfil = new javax.swing.JLabel();
         cboPerfil = new javax.swing.JComboBox<>();
-        txtUsuId = new javax.swing.JTextField();
         txtUsuSenha = new javax.swing.JPasswordField();
         lblUsuCriar = new javax.swing.JLabel();
         lblUsuCons = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblUsuDel = new javax.swing.JLabel();
+        txtUsuId = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -104,6 +106,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         lblUsuCriar.setPreferredSize(new java.awt.Dimension(80, 80));
 
         lblUsuCons.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/read.png"))); // NOI18N
+        lblUsuCons.setToolTipText("Pesquisar");
         lblUsuCons.setPreferredSize(new java.awt.Dimension(80, 80));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/update.png"))); // NOI18N
@@ -129,8 +132,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                             .addComponent(lblUsuId))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsuId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsuNome, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtUsuNome, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsuId, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblUsuLogin)
                         .addGap(18, 18, 18)
